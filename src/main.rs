@@ -1,5 +1,6 @@
-
-
 fn main() {
-    println!("{}", rustlisp::sexpr::Value::Nil)
+    let x = 10;
+    match x {
+        i64 => println!("{}", x)
+    }
 }
