@@ -1,21 +1,21 @@
 use super::value::Value;
 
-pub struct Env<'a> {
+pub struct Env<'v, 'p> {
   name: String,
-  value: Value,
-  prev: Option<&'a Env<'a>>
+  value: &'v Value,
+  prev: Option<&'p Env<'p, 'p>>
 }
 
-impl<'a> Env<'a> {
-  pub fn bottom() -> Env<'a> {
+impl<'v, 'p> Env<'v, 'p> {
+  pub fn bottom() -> Env<'v, 'p> {
     Env {
       name: "".to_string(),
-      value: Value::Nil,
+      value: &Value::Nil,
       prev: None
     }
   }
 
-  pub fn new(name: String, value: Value, prev: &'a Env) -> Env<'a> {
+  pub fn new(name: String, value: &'v Value, prev: &'p Env) -> Env<'v, 'p> {
     Env {
       name: name,
       value: value,
