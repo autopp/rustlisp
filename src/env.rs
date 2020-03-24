@@ -1,9 +1,9 @@
 use super::value::Value;
 
 pub struct Env<'v, 'p> {
-  name: String,
-  value: &'v Value,
-  prev: Option<&'p Env<'p, 'p>>
+  pub name: String,
+  pub value: &'v Value,
+  pub prev: Option<&'p Env<'p, 'p>>
 }
 
 impl<'v, 'p> Env<'v, 'p> {
